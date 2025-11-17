@@ -6,27 +6,25 @@
 }
 
 :root {
-    --bg-primary: #fcfcfb;
+    --bg-primary: #fafafa;
     --bg-card: #ffffff;
-    --bg-gradient: linear-gradient(135deg, #fdfcfb 0%, #f7f6f4 100%);
-    --text-primary: #0f0f0f;
-    --text-secondary: #6b6b6b;
-    --text-tertiary: #a8a8a8;
-    --border-color: #e8e7e5;
-    --border-hover: #d1d0ce;
-    --accent: #1a1a1a;
-    --accent-gradient: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.03);
-    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.06), 0 4px 8px rgba(0, 0, 0, 0.04);
-    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.05);
+    --text-primary: #000000;
+    --text-secondary: #404040;
+    --text-tertiary: #888888;
+    --border-color: #e0e0e0;
+    --border-hover: #000000;
+    --accent: #000000;
+    --accent-secondary: #1a1a1a;
+    --sidetab-color: #000000;
+    --shadow-sharp: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background: var(--bg-gradient);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-primary);
     color: var(--text-primary);
-    line-height: 1.6;
+    line-height: 1.65;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -47,117 +45,116 @@ body {
 .hero {
     text-align: center;
     margin-bottom: 5rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 3rem;
 }
 
 .title {
-    font-size: 3rem;
-    font-weight: 600;
-    letter-spacing: -0.04em;
-    margin-bottom: 0.75rem;
+    font-size: 3.25rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin-bottom: 1rem;
     color: var(--text-primary);
     font-family: 'Crimson Pro', Georgia, serif;
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    text-transform: uppercase;
 }
 
 .subtitle {
-    font-size: 1.0625rem;
+    font-size: 0.875rem;
     color: var(--text-secondary);
-    font-weight: 400;
-    letter-spacing: 0.03em;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
 }
 
 /* Section Headers */
 .section-header {
-    margin: 3.5rem 0 1.5rem;
-    text-align: center;
+    margin: 4rem 0 2rem;
+    position: relative;
 }
 
 .section-title {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--text-tertiary);
+    color: var(--text-primary);
+    background: var(--bg-card);
+    padding: 0 1.5rem;
     position: relative;
     display: inline-block;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -0.5rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
+}
+
+.section-header::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
     height: 1px;
     background: var(--border-color);
+    z-index: -1;
 }
 
 /* Poems List */
 .poems-list {
     display: flex;
     flex-direction: column;
-    gap: 0.875rem;
+    gap: 1rem;
 }
 
 .poem-card {
     display: block;
-    padding: 2rem 2.25rem;
+    padding: 2rem 2.5rem;
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 16px;
+    border-radius: 0;
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: var(--shadow-sm);
+    transition: all 0.15s ease;
     position: relative;
-    overflow: hidden;
 }
 
 .poem-card::before {
     content: '';
     position: absolute;
-    top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.01) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: var(--accent);
+    transition: width 0.2s ease;
 }
 
 .poem-card:hover {
     border-color: var(--border-hover);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    transform: translateX(4px);
 }
 
 .poem-card:hover::before {
-    opacity: 1;
+    width: 4px;
 }
 
 .poem-card:active {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
+    transform: translateX(2px);
 }
 
 .poem-info {
     display: flex;
     flex-direction: column;
-    gap: 0.625rem;
+    gap: 0.75rem;
 }
 
 .poem-title {
-    font-size: 1.375rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: var(--text-primary);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     font-family: 'Crimson Pro', Georgia, serif;
-    line-height: 1.3;
+    line-height: 1.25;
 }
 
 .poem-description {
@@ -172,7 +169,7 @@ body {
     background-color: transparent;
     padding: 4rem 2rem 2.5rem;
     margin-top: auto;
-    border-top: 1px solid var(--border-color);
+    border-top: 2px solid var(--border-color);
 }
 
 .footer-content {
@@ -182,11 +179,12 @@ body {
 }
 
 .footer-name {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
-    font-weight: 500;
-    letter-spacing: 0.01em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 .footer-contact {
@@ -197,7 +195,7 @@ body {
 .footer-contact a {
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.15s ease;
 }
 
 .footer-contact a:hover {
@@ -205,13 +203,13 @@ body {
 }
 
 .separator {
-    margin: 0 0.625rem;
+    margin: 0 0.75rem;
     color: var(--text-tertiary);
 }
 
 /* Individual Poem Pages */
 .work-container {
-    max-width: 720px;
+    max-width: 820px;
     margin: 0 auto;
     padding: 4rem 2rem 4rem;
 }
@@ -222,99 +220,118 @@ body {
     margin-bottom: 3.5rem;
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.9375rem;
-    transition: all 0.2s ease;
-    font-weight: 400;
-    padding: 0.5rem 1rem 0.5rem 0.75rem;
-    border-radius: 8px;
-    margin-left: -0.75rem;
+    font-size: 0.875rem;
+    transition: all 0.15s ease;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
 }
 
 .back-link:hover {
     color: var(--text-primary);
-    background-color: rgba(0, 0, 0, 0.02);
+    border-color: var(--border-color);
 }
 
 .back-link::before {
     content: "←";
-    margin-right: 0.5rem;
-    font-size: 1.125rem;
+    margin-right: 0.625rem;
+    font-size: 1.25rem;
 }
 
 .work-header {
-    margin-bottom: 3.5rem;
+    margin-bottom: 4rem;
     text-align: center;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2.5rem;
+    border-bottom: 2px solid var(--accent);
 }
 
 .work-page-title {
-    font-size: 2.75rem;
-    font-weight: 500;
-    margin-bottom: 0.875rem;
-    letter-spacing: -0.03em;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: -0.035em;
     color: var(--text-primary);
     font-family: 'Crimson Pro', Georgia, serif;
-    line-height: 1.2;
+    line-height: 1.15;
 }
 
 .work-meta {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     color: var(--text-secondary);
-    font-weight: 400;
-    letter-spacing: 0.02em;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
-/* Poem Analysis Section */
+/* Poem Analysis Section - Sidetab Design */
 .poem-analysis {
-    margin-bottom: 3.5rem;
-    padding: 2.5rem;
-    background-color: rgba(0, 0, 0, 0.01);
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
+    margin-bottom: 4rem;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-left: 6px solid var(--sidetab-color);
+    padding-left: 2.5rem;
+    position: relative;
+}
+
+.poem-analysis::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 6px;
+    height: 60px;
+    background: var(--accent);
 }
 
 .analysis-section {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .analysis-section:last-child {
     margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .analysis-heading {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--text-tertiary);
-    margin-bottom: 0.875rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
 }
 
 .analysis-text {
     font-size: 1rem;
     line-height: 1.75;
     color: var(--text-secondary);
-    font-family: 'Inter', sans-serif;
+    font-family: inherit;
 }
 
 /* Poem Content */
 .work-content {
-    font-size: 1.1875rem;
-    line-height: 1.9;
+    font-size: 1.25rem;
+    line-height: 1.85;
     margin-bottom: 4rem;
     font-family: 'Crimson Pro', Georgia, serif;
     color: var(--text-primary);
+    font-weight: 400;
 }
 
 .work-content p {
-    margin-bottom: 1.75rem;
+    margin-bottom: 2rem;
 }
 
 .work-content br {
     content: "";
     display: block;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.35rem;
 }
 
 /* Responsive Design */
@@ -325,26 +342,27 @@ body {
 
     .hero {
         margin-bottom: 4rem;
+        padding-bottom: 2.5rem;
     }
 
     .title {
-        font-size: 2.25rem;
+        font-size: 2.5rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 0.8125rem;
     }
 
     .section-header {
-        margin: 3rem 0 1.25rem;
+        margin: 3rem 0 1.5rem;
     }
 
     .poem-card {
-        padding: 1.75rem 1.75rem;
+        padding: 1.75rem 2rem;
     }
 
     .poem-title {
-        font-size: 1.25rem;
+        font-size: 1.375rem;
     }
 
     .poem-description {
@@ -356,15 +374,21 @@ body {
     }
 
     .work-page-title {
-        font-size: 2.25rem;
+        font-size: 2.5rem;
     }
 
     .work-content {
-        font-size: 1.125rem;
+        font-size: 1.1875rem;
     }
 
     .poem-analysis {
-        padding: 2rem;
+        padding-left: 2rem;
+        border-left-width: 5px;
+    }
+
+    .poem-analysis::before {
+        width: 5px;
+        left: -5px;
     }
 }
 
@@ -403,11 +427,18 @@ body {
     }
 
     .work-content {
-        font-size: 1.0625rem;
+        font-size: 1.125rem;
     }
 
     .poem-analysis {
-        padding: 1.75rem;
+        padding-left: 1.5rem;
+        border-left-width: 4px;
+    }
+
+    .poem-analysis::before {
+        width: 4px;
+        left: -4px;
+        height: 50px;
     }
 
     .analysis-text {
