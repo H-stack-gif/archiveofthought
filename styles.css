@@ -31,6 +31,42 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Portfolio Button */
+.portfolio-nav {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.portfolio-button {
+    display: inline-block;
+    padding: 0.625rem 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-dark);
+    border-radius: 2px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-subtle);
+}
+
+.portfolio-button:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-2px);
+}
+
+.portfolio-button:active {
+    transform: translateY(0);
+}
+
 /* Container */
 .container {
     flex: 1;
@@ -342,6 +378,80 @@ body {
     margin-bottom: 0.35rem;
 }
 
+/* Portfolio Page */
+.portfolio-container {
+    flex: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 5rem 2rem 4rem;
+    width: 100%;
+}
+
+.portfolio-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.portfolio-title {
+    font-size: 2.75rem;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    font-family: 'Crimson Pro', Georgia, serif;
+}
+
+.portfolio-poem {
+    margin-bottom: 5rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.portfolio-poem:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.portfolio-poem-title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    font-family: 'Crimson Pro', Georgia, serif;
+    line-height: 1.2;
+}
+
+.portfolio-poem-content {
+    font-size: 1.125rem;
+    line-height: 1.85;
+    margin-bottom: 2.5rem;
+    font-family: 'Crimson Pro', Georgia, serif;
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+.portfolio-poem-content p {
+    margin-bottom: 1.75rem;
+}
+
+.portfolio-poem-content br {
+    content: "";
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.portfolio-summary {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    font-style: italic;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .work-wrapper {
@@ -412,6 +522,45 @@ body {
     .analysis-text {
         font-size: 0.8125rem;
     }
+
+    .portfolio-nav {
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .portfolio-button {
+        padding: 0.5rem 1.125rem;
+        font-size: 0.6875rem;
+    }
+
+    .portfolio-container {
+        padding: 4rem 1.5rem 3rem;
+    }
+
+    .portfolio-header {
+        margin-bottom: 4rem;
+    }
+
+    .portfolio-title {
+        font-size: 2.25rem;
+    }
+
+    .portfolio-poem {
+        margin-bottom: 4rem;
+        padding-bottom: 3rem;
+    }
+
+    .portfolio-poem-title {
+        font-size: 1.75rem;
+    }
+
+    .portfolio-poem-content {
+        font-size: 1.0625rem;
+    }
+
+    .portfolio-summary {
+        font-size: 0.875rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -454,6 +603,45 @@ body {
 
     .poem-analysis-sidebar {
         padding: 1.5rem 1.25rem;
+    }
+
+    .portfolio-nav {
+        top: 1.25rem;
+        right: 1.25rem;
+    }
+
+    .portfolio-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.625rem;
+    }
+
+    .portfolio-container {
+        padding: 3rem 1.25rem 2.5rem;
+    }
+
+    .portfolio-header {
+        margin-bottom: 3.5rem;
+    }
+
+    .portfolio-title {
+        font-size: 2rem;
+    }
+
+    .portfolio-poem {
+        margin-bottom: 3.5rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .portfolio-poem-title {
+        font-size: 1.5rem;
+    }
+
+    .portfolio-poem-content {
+        font-size: 1rem;
+    }
+
+    .portfolio-summary {
+        font-size: 0.8125rem;
     }
 }
 
